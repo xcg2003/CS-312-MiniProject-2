@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
     await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-    .than(response => {
+    .then(response => {
         console.log(response.data);
     });
    
