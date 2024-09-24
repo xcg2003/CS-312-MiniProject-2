@@ -2,6 +2,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import axios from 'axios';
 
 const app = express();
 const port = 3000;
@@ -18,11 +19,22 @@ app.use(express.json());``
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
 
+// Set the view engine to ejs
+app.set('view engine', 'ejs');
+
 
 // Start the server
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
     res.status(200);
+});
+
+app.post('/', async (req, res) => {
+    await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    .than(response => {
+        console.log(response.data);
+    });
+   
 });
 
 app.listen(port, () => {
