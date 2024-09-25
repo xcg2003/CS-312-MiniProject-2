@@ -1,7 +1,0 @@
-Keywords:
-GET - Request a reasource from the server (html, text, data)
-POST - Send a reasource to a server (forms)
-PUT - Replace a reasource
-PATCH - Patch up a reasource (fix a broken reasourse)
-DELETE - Delete reasources from sever or database
-
