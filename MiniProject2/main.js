@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 app.post('/', async (req, res) => {
     try {
         const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+        console.log(response.data);
         const cocktailData = encodeURIComponent(JSON.stringify(response.data));
         res.redirect(`/displayCocktail?data=${cocktailData}`);
     } catch (error) {
